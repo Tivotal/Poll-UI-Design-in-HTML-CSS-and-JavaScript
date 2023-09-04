@@ -1,0 +1,135 @@
+/* Created by Tivotal */
+
+/* Google Fonts(Poppins) */
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600&display=swap");
+
+* {
+  font-family: "Poppins", sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+::selection {
+  background: #0b8c4c;
+  color: #fff;
+}
+
+body {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #0b8c4c;
+}
+
+.wrapper {
+  max-width: 380px;
+  width: 100%;
+  background: #fff;
+  padding: 25px;
+  border-radius: 10px;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.15);
+}
+
+.wrapper header {
+  font-size: 22px;
+  font-weight: 600;
+}
+
+.wrapper .poll-area {
+  margin: 20px 0 15px 0;
+}
+
+.wrapper .poll-area label {
+  display: block;
+  margin-bottom: 10px;
+  padding: 8px 15px;
+  border: 2px solid #e6e6e6;
+  border-radius: 5px;
+  transition: all 0.2s ease;
+}
+
+.wrapper .poll-area label.active {
+  border-color: #0b8c4c;
+}
+
+.wrapper .poll-area label:hover {
+  background: #ddd;
+}
+
+.wrapper .poll-area label .row {
+  display: flex;
+  justify-content: space-between;
+  pointer-events: none;
+}
+
+.wrapper .poll-area label .row .column {
+  display: flex;
+  align-items: center;
+}
+
+.wrapper .poll-area label .row .column .circle {
+  position: relative;
+  height: 19px;
+  width: 19px;
+  border: 2px solid #ccc;
+  border-radius: 50%;
+  margin-right: 10px;
+}
+
+.wrapper .poll-area label .row .column .circle::after {
+  position: absolute;
+  content: "";
+  height: 11px;
+  width: 11px;
+  background: #0b8c4c;
+  border-radius: 50%;
+  left: 2px;
+  top: 2px;
+  display: none;
+}
+
+.wrapper .poll-area label.active .row .column .circle::after {
+  display: block;
+  background: #0b8c4c !important;
+}
+
+.wrapper .poll-area label:hover .row .column .circle::after {
+  display: block;
+  background: #e6e6e6;
+}
+
+.wrapper .poll-area label span {
+  font-size: 16px;
+  font-weight: 500;
+}
+
+.wrapper .poll-area label .percent {
+  display: none;
+}
+
+.wrapper .poll-area label .progress {
+  position: relative;
+  height: 7px;
+  width: 100%;
+  background: #f0f0f0;
+  margin: 8px 0 3px 0;
+  border-radius: 30px;
+  pointer-events: none;
+  display: none;
+}
+
+.wrapper .poll-area label.activeAll .percent,
+.wrapper .poll-area label.activeAll .progress {
+  display: block;
+}
+
+.wrapper .poll-area label .progress::after {
+  position: absolute;
+  content: "";
+  height: 100%;
+  width: calc(1% * var(--w));
+  background: #ccc;
+  border-radius: 30px;
+}
